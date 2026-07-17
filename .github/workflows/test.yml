@@ -170,7 +170,6 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   test262:
-    needs: basic
     strategy:
       fail-fast: false
       matrix:
@@ -221,7 +220,6 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   html5lib:
-    needs: basic
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -259,7 +257,6 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   css-parsing:
-    needs: basic
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -298,7 +295,6 @@ jobs:
 
   # Run webpack's test suite under Deno and Bun (spec validation suites excluded).
   runtimes:
-    needs: basic
     strategy:
       fail-fast: false
       matrix:
@@ -346,7 +342,6 @@ jobs:
       - run: yarn test:${{ matrix.runtime }} --ci
 
   integration:
-    needs: basic
     strategy:
       fail-fast: false
       matrix:
